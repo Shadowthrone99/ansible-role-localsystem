@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install packages
+    apt:
+      name:
+      - ntpdate
+      - nmap
+      - insync
+      - google-chrome-stable
+      - virtualbox
+      - teamviewer
+      state: latest
+      cache_valid_time: 3600
