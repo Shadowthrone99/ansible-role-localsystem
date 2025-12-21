@@ -1,0 +1,28 @@
+---
+- name: Install GNOME utilities
+  apt:
+    name:
+      - dconf-editor
+      - gnome-screenshot
+      - gnome-shell-extension-prefs
+      - gnome-tweaks
+      - clamtk
+    state: present
+
+- name: Add Insync key
+  get_url:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xACCAF35C
+    dest: /etc/apt/keyrings/insync.asc
+    mode: '0644'
+
+- name: Add Insync repository
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/insync.asc] http://apt.insync.io/ubuntu noble non-free contrib"
+    state: present
+
+- name: Install Insync
+  apt:
+    name: insync
+    state: present
+    update_cache: yes
+

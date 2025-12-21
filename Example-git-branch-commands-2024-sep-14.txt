@@ -1,0 +1,9 @@
+git checkout -b "halfpricebooks-update-cost-manager"
+Make changes
+Remember to update CHANGELOG.MD
+git branch
+git status
+git add --all
+git commit -m "halfpricebooks-update-cost-manager"
+git push
+git push --set-upstream origin halfpricebooks-update-cost-manager
