@@ -1,0 +1,11 @@
+---
+- name: Autoremove unused packages
+  apt:
+    autoremove: yes
+  when: apt_autoremove
+
+- name: Autoclean apt cache
+  apt:
+    autoclean: yes
+  when: apt_autoclean
+

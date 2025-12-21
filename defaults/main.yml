@@ -1,0 +1,5 @@
+---
+clamav_update_on_install: true
+apt_autoremove: true
+apt_autoclean: true
+

@@ -1,0 +1,35 @@
+---
+- name: Add VirtualBox key
+  get_url:
+    url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    dest: /etc/apt/keyrings/virtualbox.asc
+    mode: '0644'
+
+- name: Add VirtualBox repository
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/virtualbox.asc] https://download.virtualbox.org/virtualbox/debian noble contrib"
+    state: present
+
+- name: Install VirtualBox
+  apt:
+    name: virtualbox-7.1
+    state: present
+    update_cache: yes
+
+- name: Add TeamViewer key
+  get_url:
+    url: https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc
+    dest: /etc/apt/keyrings/teamviewer.asc
+    mode: '0644'
+
+- name: Add TeamViewer repository
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/teamviewer.asc] https://linux.teamviewer.com/deb stable main"
+    state: present
+
+- name: Install TeamViewer
+  apt:
+    name: teamviewer
+    state: present
+    update_cache: yes
+
